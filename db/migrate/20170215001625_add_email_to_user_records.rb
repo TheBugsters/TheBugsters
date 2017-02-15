@@ -1,0 +1,5 @@
+class AddEmailToUserRecords < ActiveRecord::Migration[5.0]
+  def change
+    add_column :user_records, :email, :string
+  end
+end
