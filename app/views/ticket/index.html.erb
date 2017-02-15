@@ -12,8 +12,13 @@
       <tr>
         <td><%= ticket.title %></td>
         <td><%= ticket.description %></td>
-        <td><%= link_to 'Show', ticket_new_path(ticket) %></td>
+        <td><%= link_to 'View', ticket_url(ticket) %>
         <td><%= ticket.added_by %></td>
       </tr>
   <% end %>
+
+  <tr>
+    <td><%= link_to 'Login', users_login_path %></td>
+    <td><%= link_to 'Add Ticket', ticket_new_path %></td>
+  </tr>
 </table>

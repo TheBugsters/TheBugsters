@@ -9,7 +9,7 @@ class TicketController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.save
-    redirect_to ticket_new_url
+    redirect_to @ticket
   end
 
   def show
