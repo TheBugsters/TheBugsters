@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bugtool: Add User</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<style>
+  /* Make boxes for form fields that are not properly filled red */
+  .field_with_errors { display: inline; }
+  .field_with_errors > input {
+    border: 2px solid red;
+  }
+
+</style>
+<body>
+
+  <%= form_for :user do |f| %>
+    <!-- Iterate over and print error messages, if any exist (a fresh @user object will not have any errors) -->
+    <% if @user.errors.full_messages.any? %>
+        <% @user.errors.full_messages.each do |error_message| %>
+            <%= error_message %> <br />
+        <% end %><br />
+    <% end %>
+
+    <!-- Username field -->
+    <%= f.label :username %><br />
+    <%= f.text_field :username %><br />
+
+    <!-- Password and confirmation -->
+    <%= f.label :password %><br />
+    <%= f.password_field :password %><br />
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %><br />
+
+    <!-- Email field -->
+    <%= f.label :email %><br />
+    <%= f.text_field :email %><br />
+
+    <!-- Name field -->
+    <%= f.label :name %><br />
+    <%= f.text_field :name %><br /><br />
+
+    <!-- Submit button (prints "Processing" while waiting for the controller / database) -->
+    <%= f.submit :data => { disable_with: "Processing" } %>
+  <% end %>
+<%= yield %>
+
+</body>
+</html>
