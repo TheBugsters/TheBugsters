@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bugtool: List Tickets</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th {
+    padding: 6px;
+  }
+  td {
+    padding: 10px;
+  }
+</style>
+
+<body>
+  <h1>Listing Tickets</h1>
+
+  <div style="float: left">
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Link</th>
+        <th>Reporter</th>
+        <th>Assignee</th>
+      </tr>
+
+      <% @tickets_out.each do |ticket| %>
+          <tr>
+            <td><%= ticket[:title] %></td>
+            <td><%= ticket[:description] %></td>
+            <td><%= link_to 'View', ticket[:url] %>
+            <td><%= ticket[:reporter_name] %></td>
+            <td><%= ticket[:assignee_name] %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+  <div style="float: right">
+    <div>
+      <%= link_to 'Logout', users_logout_path %>
+      <%= link_to 'Add Ticket', tickets_new_path %>
+    </div>
+
+  </div>
+
+</body>
+</html>

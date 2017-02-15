@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bugtool: List Tickets</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th {
+    padding: 6px;
+  }
+  td {
+    padding: 10px;
+  }
+</style>
+
+<body>
+  <h1>Listing Tickets</h1>
+
+  <%= form_for :ticket do |f| %>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </p>
+
+    <p>
+      <%= f.label :assignee %><br>
+      <%= f.text_area :assigned_to %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+
+</body>
+</html>
