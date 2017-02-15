@@ -40,6 +40,7 @@ GEM
       tzinfo (~> 1.1)
     arel (7.1.4)
     bcrypt (3.1.11)
+    bcrypt (3.1.11-x86-mingw32)
     builder (3.2.3)
     byebug (9.0.6)
     coffee-rails (4.2.1)
@@ -54,6 +55,7 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.17)
+    ffi (1.9.17-x86-mingw32)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.8.0)
@@ -79,8 +81,11 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     mysql2 (0.4.5)
+    mysql2 (0.4.5-x86-mingw32)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
+      mini_portile2 (~> 2.1.0)
+    nokogiri (1.7.0.1-x86-mingw32)
       mini_portile2 (~> 2.1.0)
     puma (3.7.0)
     rack (2.0.1)
@@ -140,8 +145,11 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2016.10)
+      tzinfo (>= 1.0.0)
     uglifier (3.0.4)
       execjs (>= 0.3.0, < 3)
+    wdm (0.1.1)
     web-console (3.4.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -153,6 +161,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   bcrypt
@@ -170,7 +179,8 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
+  wdm (>= 0.1.0)
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.14.3
+   1.14.4
