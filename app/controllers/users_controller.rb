@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     else
       # If the user directly requested the login page, send them to the dashboard
       # TODO: This should be the dashboard (currently a WIP)
-      session[:return_to] ||= '/dashboard'
+      session[:return_to] ||= '/tickets'
     end
     puts request.referer
 
@@ -62,7 +62,10 @@ class UsersController < ApplicationController
     # If the username and password could be valid, attempt to authenticate
     if @user.errors.size == 0
       # Look up the user and check the salted hash
-      @authenticated_user = UserRecord.find_by_username(@user.username).authenticate(params[:user]['password'])
+      @user_record = UserRecord.find_by_username(@user.username)
+      if @user_record
+        @authenticated_user = @user_record.authenticate(params[:user]['password'])
+      end
       if @authenticated_user
         session[:user_id] = @authenticated_user.id
         # Redirect to last page (or the dashboard if none was found / specified)
@@ -75,6 +78,22 @@ class UsersController < ApplicationController
     else
       # Otherwise, render the view for "login" again with errors
       render :login
+    end
+  end
+
+  # Log the current user out and redirect to the last page visited or the dashboard
+  def logout
+
+    # Log the user out
+    session[:user_id] = nil
+
+    # Set the redirect to dashboard if there is none registered
+    if request.referer
+      # Redirect to the last page visited
+      redirect_to request.referer
+    else
+      # Redirect to the dashboard / login page
+      redirect_to '/login'
     end
   end
 end

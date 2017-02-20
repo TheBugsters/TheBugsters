@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bugtool: View Ticket</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <p>
+    <strong>Title:</strong>
+    <%= @ticket.title %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @ticket.description %>
+  </p>
+  <p>
+    <strong>Reporter:</strong>
+    <%= @reporter_name %>
+  </p>
+  <p>
+    <strong>Assignee:</strong>
+    <%= @assignee_name %>
+  </p>
+</body>
+</html>
