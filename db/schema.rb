@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170215065916) do
 
-  create_table "ticket_records", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "ticket_records", force: :cascade, options: "DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
     t.text     "description",  limit: 65535
     t.text     "history",      limit: 65535
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170215065916) do
     t.datetime "updated_at",                 null: false
   end
 
-  create_table "user_records", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "user_records", force: :cascade, options: "DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
